@@ -233,7 +233,7 @@ section{padding:clamp(50px,7vw,84px) 0;}
 .trainee-card:hover,.trainee-card:focus-visible{transform:translateY(-2px); box-shadow:var(--shadow); border-color:var(--line); z-index:1;}
 .trainee-card.is-selected{transform:translateY(-1px); border-color:var(--forest); box-shadow:var(--shadow);}
 .trainee-photo{position:relative; aspect-ratio:4/3; overflow:hidden; background:var(--secondary);}
-.trainee-photo img{width:100%; height:100%; object-fit:cover; opacity:.9; transition:opacity .25s ease,transform .35s ease;}
+.trainee-photo img{width:100%; height:100%; object-fit:cover; object-position:center top; opacity:.9; transition:opacity .25s ease,transform .35s ease;}
 .trainee-card:hover .trainee-photo img,.trainee-card.is-selected .trainee-photo img{opacity:1; transform:scale(1.03);}
 .demo-label{position:absolute; left:12px; bottom:12px; padding:5px 9px; border-radius:6px; background:var(--forest); color:var(--on-forest); font-size:.68rem; font-weight:700; line-height:1.3;}
 .trainee-body{padding:18px 18px 20px;}
@@ -298,6 +298,39 @@ footer.site a:hover{color:var(--on-forest);}
 .modal-scrim{position:fixed; inset:0; background:rgba(26,24,22,.55); z-index:110; display:none; align-items:center; justify-content:center; padding:20px;}
 .modal-scrim.open{display:flex;}
 .modal{background:var(--bg); border-radius:var(--radius-l); max-width:460px; width:100%; padding:28px 26px 26px; max-height:88vh; overflow-y:auto; animation:popIn .3s ease;}
+.modal.trainee-profile-modal{position:relative; width:min(940px,100%); max-width:940px; max-height:calc(100vh - 40px); max-height:calc(100dvh - 40px); padding:clamp(18px,3vw,30px); border:1px solid var(--line); border-radius:var(--radius-m); box-shadow:var(--shadow-lift);}
+.trainee-profile-modal .close-x{position:absolute; top:14px; right:14px; z-index:1; margin:0;}
+.trainee-profile-head{display:grid; grid-template-columns:140px minmax(0,1fr); gap:20px; align-items:center; padding:0 50px 22px 0; border-bottom:1px solid var(--line);}
+.trainee-profile-photo{width:140px; aspect-ratio:1; border:1px solid var(--line); border-radius:8px; object-fit:cover; object-position:center top; background:var(--secondary);}
+.trainee-profile-heading h2{font-size:clamp(1.45rem,3vw,2rem); line-height:1.12; color:var(--forest); margin:0 0 6px;}
+.trainee-profile-type{font-size:.82rem; font-weight:700; color:var(--forest-ink); margin:0 0 5px;}
+.trainee-profile-project{font-size:.92rem; font-weight:600; color:var(--ink); margin:0;}
+.trainee-project-intro{margin:18px 0 22px;}
+.trainee-project-intro h3,.trainee-project-journey h3{font-family:'Work Sans',system-ui,sans-serif; font-size:.95rem; font-weight:700; color:var(--forest); margin:0 0 6px;}
+.trainee-project-intro p{font-size:.88rem; line-height:1.5; margin:0;}
+.trainee-project-journey{margin-top:20px;}
+.trainee-project-journey > h3{font-family:'Fraunces',Georgia,serif; font-size:1.35rem; margin-bottom:12px;}
+.trainee-project-galleries{display:grid; grid-template-columns:minmax(0,1fr); gap:24px;}
+.trainee-gallery-section{min-width:0;}
+.trainee-gallery-section h4{font-size:.92rem; color:var(--forest); margin:0 0 4px;}
+.trainee-gallery-section > p{font-size:.78rem; line-height:1.45; margin:0 0 9px;}
+.trainee-gallery-frame{position:relative; width:100%; aspect-ratio:16/10; overflow:hidden; border:1px solid var(--line); border-radius:8px; background:var(--secondary); touch-action:pan-y;}
+.trainee-gallery-frame img{width:100%; height:100%; object-fit:contain;}
+.trainee-gallery-controls{display:grid; grid-template-columns:40px minmax(0,1fr) 40px; align-items:center; gap:7px; margin-top:8px;}
+.trainee-gallery-controls[hidden]{display:none;}
+.trainee-gallery-arrow{width:40px; height:40px; display:grid; place-items:center; border:1px solid var(--line); border-radius:50%; background:var(--bg-raised); color:var(--ink); cursor:pointer;}
+.trainee-gallery-arrow:hover{border-color:var(--forest); background:var(--surface);}
+.trainee-gallery-arrow svg{width:17px; height:17px;}
+.trainee-gallery-pagination{display:grid; justify-items:center; gap:5px; min-width:0;}
+.trainee-gallery-count{font-size:.72rem; font-weight:600; color:var(--ink-soft); font-variant-numeric:tabular-nums;}
+.trainee-gallery-dots{display:flex; flex-wrap:wrap; justify-content:center; gap:5px; max-width:100%;}
+.trainee-gallery-dot{width:9px; height:9px; flex:none; padding:0; border:0; border-radius:50%; background:var(--line); cursor:pointer;}
+.trainee-gallery-dot.is-active{background:var(--forest);}
+.trainee-profile-links{display:flex; flex-wrap:wrap; gap:10px 18px; margin-top:20px; padding-top:14px; border-top:1px solid var(--line);}
+.trainee-profile-links a{color:var(--forest-ink); font-size:.84rem; font-weight:700; text-decoration:none;}
+.trainee-profile-links a:hover{text-decoration:underline; text-underline-offset:3px;}
+body.trainee-modal-open{overflow:hidden;}
+@media(max-width:600px){.modal.trainee-profile-modal{padding:16px;}.trainee-profile-head{grid-template-columns:86px minmax(0,1fr); gap:13px; padding:0 44px 18px 0; align-items:start;}.trainee-profile-photo{width:86px;}.trainee-project-galleries{grid-template-columns:1fr; gap:20px;}.trainee-project-intro{margin:15px 0 18px;}}
 .modal h3{margin-bottom:.2em;}
 .modal .close-x{float:right; margin-top:-6px;}
 .order-line{display:flex; justify-content:space-between; font-size:.86rem; padding:8px 0; border-bottom:1px dashed var(--line);}
@@ -376,7 +409,7 @@ footer.site a:hover{color:var(--on-forest);}
       </div>
     </div>
     <div class="hero-art">
-      <img src="https://afforestt.com/wp-content/uploads/2025/12/IMG_5304-1024x576.webp" alt="Native forest restoration project in the Lesser Caucasus, Armenia" fetchpriority="high" decoding="async">
+      <img src="./webphoto1.jpeg" alt="Native forest restoration project in the Lesser Caucasus, Armenia" fetchpriority="high" decoding="async">
     </div>
   </div>
 </section>
@@ -479,9 +512,9 @@ footer.site a:hover{color:var(--on-forest);}
 <section id="trainees">
   <div class="wrap">
     <div class="section-head"><div><span class="section-tag">Learning together</span><h2>Meet Our Trainees</h2></div></div>
-    <p class="trainee-note">People learning and growing forests around the world. Profiles and photos below are illustrative demo content, not actual Afforestt trainees.</p>
+    <p class="trainee-note">Select a trainee to view their profile and project. Sample profiles are marked as demos.</p>
     <div class="carousel-shell">
-      <div class="trainee-track" id="traineeTrack" aria-label="Demo trainee profiles"></div>
+      <div class="trainee-track" id="traineeTrack" aria-label="Trainee profiles"></div>
       <div class="carousel-controls trainee-controls">
         <div class="carousel-dots" id="traineeDots" aria-label="Choose a trainee"></div>
         <div class="carousel-nav">
@@ -604,11 +637,11 @@ footer.site a:hover{color:var(--on-forest);}
       audience:"People ready to start planning a real site.",
       learn:["Reading soil and site conditions","Building a native species list","Planning the planting layout","Aftercare for the first few months"],
       includes:["Live 4-hour session covering soil, species and layout","Worked example using a real site plan","Certificate of participation"]},
-    { id:"indepth", title:"In-depth Training", tagline:"Know everything about the Method — spread over 2 days.", duration:"8 hours · 2 days", price:500, currency:"USD",
+    { id:"indepth", title:"Online Training", tagline:"Know everything about the Method — spread over 2 days.", duration:"8 hours · 2 days", price:500, currency:"USD",
       c1:"#493631", c2:"#A5644B", c3:"#D3A080", icon:"book",
       image:"https://afforestt.com/wp-content/uploads/2026/01/Project2-1024x696.webp", imageAlt:"Afforestt linear urban forest project in Springfield, Massachusetts",
       images:[
-        {src:"./WhatsApp%20Image%202026-10-07%20at%204.41.12%20PM.jpeg",alt:"Forest growth from a newly planted site to a dense native forest"},
+        {src:"./carousel-first-image.png",alt:"Participants learning in the field during a forest restoration training"},
         {src:"./WhatsApp%20Image%202026-10-07%20at%204.41.13%20PM%20(1).jpeg",alt:"Dense native forest with more than 20,000 seedlings"},
         {src:"./WhatsApp%20Image%202026-10-07%20at%204.41.13%20PM.jpeg",alt:"Native forest growth from initial planting to a mature site"},
         {src:"https://afforestt.com/wp-content/uploads/2026/01/Project2-1024x696.webp",alt:"Afforestt linear urban forest project in Springfield, Massachusetts"}
@@ -655,7 +688,7 @@ footer.site a:hover{color:var(--on-forest);}
       '</div>'+
     '</div>'+
     '<div class="course-content">'+
-      '<span class="course-eyebrow">IN-DEPTH TRAINING</span><h3>'+featuredTraining.title+'</h3><p class="course-description">'+featuredTraining.tagline+'</p>'+
+      '<h3>'+featuredTraining.title+'</h3><p class="course-description">'+featuredTraining.tagline+'</p>'+
       '<div class="course-facts"><span>'+featuredTraining.duration+'</span><span>Live online · Friday evenings</span></div>'+
       '<p class="course-suitable"><strong>Suitable for</strong>'+featuredTraining.audience+'</p>'+
       '<p class="course-price">'+money(featuredTraining.price,featuredTraining.currency)+'</p>'+
@@ -761,11 +794,115 @@ footer.site a:hover{color:var(--on-forest);}
 
   /* ---------------- Trainees carousel ---------------- */
   var TRAINEES = [
-    {name:"Ananya Sharma", city:"Bengaluru", country:"India", role:"Miyawaki Method Trainee", image:"https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80"},
-    {name:"Carlos Mendes", city:"Lisbon", country:"Portugal", role:"Forest Restoration Trainee", image:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80"},
-    {name:"Maria Silva", city:"Sao Paulo", country:"Brazil", role:"DIY Forests Trainee", image:"https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=700&q=80"},
-    {name:"Daniel Okafor", city:"Lagos", country:"Nigeria", role:"Native Forest Trainee", image:"https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=700&q=80"}
+    {name:"Tancy Arron-Walker", type:"Online Trainee", project:"Indiana 10,000 Trees", projectLabel:"Project", projectIntro:"Explore the supplied project images below, organized into before- and after-planting views.", image:"./assets/trainees/tancy/profile.jpeg", imageAlt:"Tancy Arron-Walker",
+      beforePlantingImages:[
+        "./assets/trainees/tancy/Before%20Planting/IMG_6694.jpeg",
+        "./assets/trainees/tancy/Before%20Planting/IMG_6737.jpeg",
+        "./assets/trainees/tancy/Before%20Planting/IMG_6794.jpeg",
+        "./assets/trainees/tancy/Before%20Planting/IMG_6835.jpeg",
+        "./assets/trainees/tancy/Before%20Planting/IMG_7014.jpeg",
+        "./assets/trainees/tancy/Before%20Planting/IMG_7072.jpeg"
+      ],
+      afterPlantingImages:[
+        "./assets/trainees/tancy/After%20Planting-20261008T141329Z-1-001/After%20Planting/IMG_2789.jpeg",
+        "./assets/trainees/tancy/After%20Planting-20261008T141329Z-1-001/After%20Planting/IMG_3105.jpeg",
+        "./assets/trainees/tancy/After%20Planting-20261008T141329Z-1-001/After%20Planting/IMG_3507.jpeg",
+        "./assets/trainees/tancy/After%20Planting-20261008T141329Z-1-001/After%20Planting/IMG_4108.jpeg"
+      ],
+      links:[
+        {label:"View on Instagram",url:"https://www.instagram.com/candycreekfarm?stkn=dHljczJ0c20xZXdu"},
+        {label:"View Project Photos",url:"https://drive.google.com/drive/folders/1o046RypscMO9pEspahbkPFycvXCOGCA0"}
+      ]},
+    {name:"Brett Krause", type:"Online Trainee", project:"Forest Restoration Work", projectLabel:"Work", image:"./assets/trainees/brett/brett1.jpeg", imageAlt:"Brett Krause",
+      links:[{label:"View Work",url:"https://www.facebook.com/reel/952851422536857"}]},
+    {name:"Maria Silva", city:"Sao Paulo", country:"Brazil", role:"DIY Forests Trainee", image:"https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=700&q=80", demo:true},
+    {name:"Daniel Okafor", city:"Lagos", country:"Nigeria", role:"Native Forest Trainee", image:"https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=700&q=80", demo:true}
   ];
+  function escapeTraineeHtml(value){
+    return String(value).replace(/[&<>"']/g,function(character){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[character];
+    });
+  }
+  function traineeGalleryMarkup(id,title,description,images){
+    if(!images || !images.length) return "";
+    var safeTitle = escapeTraineeHtml(title);
+    var galleryDots = images.length>1 ? '<div class="trainee-gallery-controls">'+
+      '<button class="trainee-gallery-arrow" type="button" data-gallery-previous aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>'+
+      '<div class="trainee-gallery-pagination"><span class="trainee-gallery-count" data-gallery-count aria-live="polite">1 / '+images.length+'</span>'+
+      '<div class="trainee-gallery-dots" role="group" aria-label="'+safeTitle+' images">'+images.map(function(_,index){return '<button class="trainee-gallery-dot'+(index===0?' is-active':'')+'" type="button" aria-label="Show '+safeTitle+' image '+(index+1)+'" aria-current="'+(index===0?'true':'false')+'" data-gallery-index="'+index+'"></button>';}).join("")+'</div></div>'+
+      '<button class="trainee-gallery-arrow" type="button" data-gallery-next aria-label="Next image"><svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>'+
+      '</div>' : '<div class="trainee-gallery-controls" hidden></div>';
+    return '<section class="trainee-gallery-section" aria-labelledby="'+id+'Heading">'+
+      '<h4 id="'+id+'Heading">'+safeTitle+'</h4><p>'+escapeTraineeHtml(description)+'</p>'+
+      '<div class="trainee-gallery-frame" id="'+id+'Frame" data-gallery-frame="'+id+'"><img src="'+escapeTraineeHtml(images[0])+'" alt="'+safeTitle+' image 1" decoding="async"></div>'+
+      galleryDots+'</section>';
+  }
+  function initializeTraineeGallery(id,title,images,traineeName){
+    if(!images || images.length<2) return;
+    var gallery = document.getElementById(id+"Frame").parentNode;
+    var frame = document.getElementById(id+"Frame");
+    var image = frame.querySelector("img");
+    var counter = gallery.querySelector("[data-gallery-count]");
+    var dots = gallery.querySelectorAll("[data-gallery-index]");
+    var currentIndex = 0;
+    function showImage(index){
+      currentIndex = (index+images.length)%images.length;
+      image.src = images[currentIndex];
+      image.alt = traineeName+" — "+title.toLowerCase()+" image "+(currentIndex+1);
+      counter.textContent = (currentIndex+1)+" / "+images.length;
+      Array.prototype.forEach.call(dots,function(dot,dotIndex){
+        var active = dotIndex===currentIndex;
+        dot.classList.toggle("is-active",active);
+        dot.setAttribute("aria-current",active ? "true" : "false");
+      });
+    }
+    gallery.querySelector("[data-gallery-previous]").addEventListener("click",function(){showImage(currentIndex-1);});
+    gallery.querySelector("[data-gallery-next]").addEventListener("click",function(){showImage(currentIndex+1);});
+    Array.prototype.forEach.call(dots,function(dot){
+      dot.addEventListener("click",function(){showImage(parseInt(dot.getAttribute("data-gallery-index"),10));});
+    });
+    var touchStartX = null;
+    frame.addEventListener("pointerdown",function(event){
+      if(event.pointerType!=="touch") return;
+      touchStartX = event.clientX;
+      frame.setPointerCapture(event.pointerId);
+    });
+    frame.addEventListener("pointerup",function(event){
+      if(touchStartX===null) return;
+      var distance = event.clientX-touchStartX;
+      touchStartX = null;
+      if(Math.abs(distance)>45) showImage(currentIndex+(distance<0 ? 1 : -1));
+    });
+    frame.addEventListener("pointercancel",function(){touchStartX=null;});
+  }
+  var traineeModalReturnFocus = null;
+  function openTraineeProfile(trainee,trigger){
+    var traineeName = escapeTraineeHtml(trainee.name);
+    var projectHtml = trainee.project ? '<p class="trainee-profile-project"><strong>'+escapeTraineeHtml(trainee.projectLabel || "Project")+':</strong> '+escapeTraineeHtml(trainee.project)+'</p>' : "";
+    var introHtml = trainee.projectIntro ? '<section class="trainee-project-intro"><h3>About the Project</h3><p>'+escapeTraineeHtml(trainee.projectIntro)+'</p></section>' : "";
+    var beforeHtml = traineeGalleryMarkup("traineeBefore","Before Planting","See the site before the planting work began.",trainee.beforePlantingImages);
+    var afterHtml = traineeGalleryMarkup("traineeAfter","After Planting","See how the site developed after planting.",trainee.afterPlantingImages);
+    var journeyHtml = beforeHtml || afterHtml ? '<section class="trainee-project-journey" aria-labelledby="traineeJourneyHeading"><h3 id="traineeJourneyHeading">Project Journey</h3><div class="trainee-project-galleries">'+beforeHtml+afterHtml+'</div></section>' : "";
+    var linksHtml = (trainee.links || []).map(function(link){
+      return '<a href="'+escapeTraineeHtml(link.url)+'" target="_blank" rel="noopener noreferrer">'+escapeTraineeHtml(link.label)+' &rarr;</a>';
+    }).join("");
+    traineeModalReturnFocus = trigger || document.activeElement;
+    openModal(
+      '<button class="icon-btn close-x" id="traineeProfileClose" type="button" aria-label="Close trainee profile"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>'+
+      '<header class="trainee-profile-head"><img class="trainee-profile-photo" src="'+escapeTraineeHtml(trainee.image)+'" alt="'+escapeTraineeHtml(trainee.imageAlt || trainee.name)+'" decoding="async">'+
+      '<div class="trainee-profile-heading"><h2 id="traineeProfileTitle">'+traineeName+'</h2><p class="trainee-profile-type">'+escapeTraineeHtml(trainee.type || trainee.role)+'</p>'+projectHtml+'</div></header>'+
+      introHtml+journeyHtml+(linksHtml ? '<nav class="trainee-profile-links" aria-label="Trainee links">'+linksHtml+'</nav>' : "")
+    );
+    modalBody.classList.add("trainee-profile-modal");
+    modalBody.setAttribute("role","dialog");
+    modalBody.setAttribute("aria-modal","true");
+    modalBody.setAttribute("aria-labelledby","traineeProfileTitle");
+    document.body.classList.add("trainee-modal-open");
+    document.getElementById("traineeProfileClose").addEventListener("click",closeModal);
+    initializeTraineeGallery("traineeBefore","Before Planting",trainee.beforePlantingImages,trainee.name);
+    initializeTraineeGallery("traineeAfter","After Planting",trainee.afterPlantingImages,trainee.name);
+    document.getElementById("traineeProfileClose").focus();
+  }
   var traineeTrack = document.getElementById("traineeTrack");
   var traineeDots = document.getElementById("traineeDots");
   TRAINEES.forEach(function(trainee, idx){
@@ -773,7 +910,10 @@ footer.site a:hover{color:var(--on-forest);}
     card.type = "button";
     card.className = "trainee-card"+(idx===0 ? " is-selected" : "");
     card.setAttribute("aria-pressed", idx===0 ? "true" : "false");
-    card.innerHTML = '<div class="trainee-photo"><img src="'+trainee.image+'" alt="Demo profile photo" loading="lazy"><span class="demo-label">DEMO PROFILE · SAMPLE PHOTO</span></div><div class="trainee-body"><h3>'+trainee.name+'</h3><p class="trainee-location">'+trainee.city+', '+trainee.country+'</p><p class="trainee-role">'+trainee.role+'</p></div>';
+    card.setAttribute("aria-label","View profile: "+trainee.name);
+    var profileLocation = trainee.project || (trainee.city ? trainee.city+(trainee.country ? ", "+trainee.country : "") : "");
+    var profileType = trainee.type || trainee.role;
+    card.innerHTML = '<div class="trainee-photo"><img src="'+trainee.image+'" alt="'+(trainee.imageAlt || "Sample profile photo for "+trainee.name)+'" loading="lazy">'+(trainee.demo ? '<span class="demo-label">DEMO PROFILE · SAMPLE PHOTO</span>' : '')+'</div><div class="trainee-body"><h3>'+trainee.name+'</h3><p class="trainee-location">'+profileLocation+'</p><p class="trainee-role">'+profileType+'</p></div>';
     card.addEventListener("click", function(){
       Array.prototype.forEach.call(traineeTrack.children, function(other){
         var selected = other===card;
@@ -782,6 +922,7 @@ footer.site a:hover{color:var(--on-forest);}
       });
       card.scrollIntoView({behavior:reduceMotion ? "auto" : "smooth", block:"nearest", inline:"nearest"});
       updateTraineeDots(idx);
+      openTraineeProfile(trainee, card);
     });
     traineeTrack.appendChild(card);
     var dot = document.createElement("button");
@@ -820,10 +961,14 @@ footer.site a:hover{color:var(--on-forest);}
   document.getElementById("traineePrev").addEventListener("click", function(){ scrollToTrainee(Math.max(0,nearestTraineeIndex()-1)); });
   document.getElementById("traineeNext").addEventListener("click", function(){ scrollToTrainee(Math.min(TRAINEES.length-1,nearestTraineeIndex()+1)); });
   (function(){
-    var isDown=false,startX,scrollStart;
-    traineeTrack.addEventListener("pointerdown", function(e){ if(e.pointerType==="touch") return; isDown=true; traineeTrack.classList.add("dragging"); startX=e.clientX; scrollStart=traineeTrack.scrollLeft; traineeTrack.setPointerCapture(e.pointerId); });
-    traineeTrack.addEventListener("pointermove", function(e){ if(!isDown) return; traineeTrack.scrollLeft=scrollStart-(e.clientX-startX); });
-    ["pointerup","pointerleave","pointercancel"].forEach(function(evt){ traineeTrack.addEventListener(evt, function(){ isDown=false; traineeTrack.classList.remove("dragging"); }); });
+    var isDown=false,isDragging=false,startX,scrollStart;
+    traineeTrack.addEventListener("pointerdown", function(e){ if(e.pointerType==="touch") return; isDown=true; isDragging=false; startX=e.clientX; scrollStart=traineeTrack.scrollLeft; });
+    traineeTrack.addEventListener("pointermove", function(e){
+      if(!isDown) return;
+      if(!isDragging && Math.abs(e.clientX-startX)>5){isDragging=true;traineeTrack.classList.add("dragging");traineeTrack.setPointerCapture(e.pointerId);}
+      if(isDragging) traineeTrack.scrollLeft=scrollStart-(e.clientX-startX);
+    });
+    ["pointerup","pointerleave","pointercancel"].forEach(function(evt){ traineeTrack.addEventListener(evt, function(){ isDown=false; isDragging=false; traineeTrack.classList.remove("dragging"); }); });
   })();
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   /* Auto-play removed on purpose: moving content on its own makes it hard for
@@ -941,8 +1086,34 @@ footer.site a:hover{color:var(--on-forest);}
   var modalScrim = document.getElementById("modalScrim");
   var modalBody = document.getElementById("modalBody");
   function openModal(html){ modalBody.innerHTML = html; modalScrim.classList.add("open"); }
-  function closeModal(){ modalScrim.classList.remove("open"); }
+  function closeModal(){
+    var closingTraineeProfile = modalBody.classList.contains("trainee-profile-modal");
+    modalScrim.classList.remove("open");
+    if(!closingTraineeProfile) return;
+    modalBody.classList.remove("trainee-profile-modal");
+    modalBody.removeAttribute("role");
+    modalBody.removeAttribute("aria-modal");
+    modalBody.removeAttribute("aria-labelledby");
+    document.body.classList.remove("trainee-modal-open");
+    var returnFocus = traineeModalReturnFocus;
+    traineeModalReturnFocus = null;
+    if(returnFocus && document.contains(returnFocus)) returnFocus.focus();
+  }
   modalScrim.addEventListener("click", function(e){ if(e.target===modalScrim) closeModal(); });
+  document.addEventListener("keydown",function(event){
+    if(!modalScrim.classList.contains("open") || !modalBody.classList.contains("trainee-profile-modal")) return;
+    if(event.key==="Escape"){
+      event.preventDefault();
+      closeModal();
+      return;
+    }
+    if(event.key!=="Tab") return;
+    var focusable = modalBody.querySelectorAll('button:not(:disabled),a[href],[tabindex]:not([tabindex="-1"])');
+    if(!focusable.length) return;
+    var first = focusable[0], last = focusable[focusable.length-1];
+    if(event.shiftKey && document.activeElement===first){event.preventDefault();last.focus();}
+    else if(!event.shiftKey && document.activeElement===last){event.preventDefault();first.focus();}
+  });
 
   /* ---------------- Training enroll modal (Friday chips) ---------------- */
   trainingGrid.addEventListener("click", function(e){
